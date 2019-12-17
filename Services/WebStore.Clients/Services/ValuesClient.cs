@@ -11,9 +11,10 @@ namespace WebStore.Clients.Services
 {
     public class ValuesClient: BaseClient, IValueService
     {
+        protected override string ServiceAddress { get; } = "api/values";
+
         public ValuesClient(IConfiguration configuration) : base(configuration)
         {
-            ServiceAddress = "api/values";
         }
 
         public IEnumerable<string> Get()
