@@ -1,0 +1,126 @@
+INFO  11 2019-12-18 22:35:18,015 [11] ?     - Request starting HTTP/2.0 GET https://localhost:44320/api/values  
+
+INFO  10 2019-12-18 22:35:18,015 [10] ?     - Request starting HTTP/1.1 GET http://localhost:61794/api/values  
+
+INFO  10 2019-12-18 22:35:18,086 [10] ?     - Request finished in 76.1026ms 307 
+
+INFO  11 2019-12-18 22:35:18,125 [11] ?     - Executing endpoint 'WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting)'
+
+INFO  11 2019-12-18 22:35:18,144 [11] ?     - Route matched with {action = "Get", controller = "Values"}. Executing action WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting)
+
+INFO  11 2019-12-18 22:35:18,155 [11] ?     - Executing action method WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) - Validation state: Valid
+
+INFO  11 2019-12-18 22:35:18,158 [11] ?     - Executed action method WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.7966ms.
+
+INFO  11 2019-12-18 22:35:18,179 [11] ?     - Executing ObjectResult, writing value of type 'System.String[]'.
+
+INFO  7 2019-12-18 22:35:18,203 [7] ?     - Request starting HTTP/1.1 GET https://localhost:44320/api/values  
+
+INFO  7 2019-12-18 22:35:18,204 [7] ?     - Executing endpoint 'WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting)'
+
+INFO  7 2019-12-18 22:35:18,205 [7] ?     - Route matched with {action = "Get", controller = "Values"}. Executing action WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting)
+
+INFO  7 2019-12-18 22:35:18,205 [7] ?     - Executing action method WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) - Validation state: Valid
+
+INFO  7 2019-12-18 22:35:18,205 [7] ?     - Executed action method WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.024ms.
+
+INFO  7 2019-12-18 22:35:18,205 [7] ?     - Executing ObjectResult, writing value of type 'System.String[]'.
+
+INFO  7 2019-12-18 22:35:18,304 [7] ?     - Executed action WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) in 98.0575ms
+
+INFO  11 2019-12-18 22:35:18,304 [11] ?     - Executed action WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) in 159.9941ms
+
+INFO  7 2019-12-18 22:35:18,304 [7] ?     - Executed endpoint 'WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting)'
+
+INFO  11 2019-12-18 22:35:18,304 [11] ?     - Executed endpoint 'WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting)'
+
+INFO  11 2019-12-18 22:35:18,304 [11] ?     - Request finished in 294.043ms 200 application/json; charset=utf-8
+
+INFO  7 2019-12-18 22:35:18,304 [7] ?     - Request finished in 101.5211ms 200 application/json; charset=utf-8
+
+INFO  7 2019-12-18 22:35:18,648 [7] ?     - Request starting HTTP/1.1 GET http://localhost:61794/api/products/sections  
+
+INFO  7 2019-12-18 22:35:18,648 [7] ?     - Request finished in 0.3342ms 307 
+
+INFO  11 2019-12-18 22:35:18,651 [11] ?     - Request starting HTTP/1.1 GET https://localhost:44320/api/products/sections  
+
+INFO  11 2019-12-18 22:35:18,651 [11] ?     - Executing endpoint 'WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting)'
+
+INFO  11 2019-12-18 22:35:18,653 [11] ?     - Route matched with {action = "GetSections", controller = "ProductsApi"}. Executing action WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting)
+
+INFO  11 2019-12-18 22:35:18,654 [11] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) - Validation state: Valid
+
+INFO  11 2019-12-18 22:35:18,655 [11] ?     - Entity Framework Core 2.2.6-servicing-10079 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  11 2019-12-18 22:35:18,679 [11] ?     - Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[Name], [s].[Order], [s].[ParentId]
+FROM [Sections] AS [s]
+
+INFO  11 2019-12-18 22:35:18,711 [11] ?     - Executed action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 57.4234ms.
+
+INFO  11 2019-12-18 22:35:18,712 [11] ?     - Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebStore.DomainNew.Entities.Section, WebStore.DomainNew, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+
+INFO  11 2019-12-18 22:35:18,813 [11] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) in 159.2873ms
+
+INFO  11 2019-12-18 22:35:18,813 [11] ?     - Executed endpoint 'WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting)'
+
+INFO  11 2019-12-18 22:35:18,813 [11] ?     - Request finished in 162.3672ms 200 application/json; charset=utf-8
+
+INFO  11 2019-12-18 22:35:18,955 [11] ?     - Request starting HTTP/1.1 GET http://localhost:61794/api/products/brands  
+
+INFO  11 2019-12-18 22:35:18,955 [11] ?     - Request finished in 0.3047ms 307 
+
+INFO  11 2019-12-18 22:35:18,955 [11] ?     - Request starting HTTP/1.1 GET https://localhost:44320/api/products/brands  
+
+INFO  11 2019-12-18 22:35:18,956 [11] ?     - Executing endpoint 'WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting)'
+
+INFO  11 2019-12-18 22:35:18,958 [11] ?     - Route matched with {action = "GetBrands", controller = "ProductsApi"}. Executing action WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting)
+
+INFO  11 2019-12-18 22:35:18,958 [11] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) - Validation state: Valid
+
+INFO  11 2019-12-18 22:35:18,959 [11] ?     - Entity Framework Core 2.2.6-servicing-10079 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  11 2019-12-18 22:35:18,964 [11] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[Name], [b].[Order]
+FROM [Brands] AS [b]
+
+INFO  11 2019-12-18 22:35:18,974 [11] ?     - Executed action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 16.2888ms.
+
+INFO  11 2019-12-18 22:35:18,975 [11] ?     - Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebStore.DomainNew.Entities.Brand, WebStore.DomainNew, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+
+INFO  11 2019-12-18 22:35:18,978 [11] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) in 20.5638ms
+
+INFO  11 2019-12-18 22:35:18,978 [11] ?     - Executed endpoint 'WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting)'
+
+INFO  11 2019-12-18 22:35:18,978 [11] ?     - Request finished in 22.9303ms 200 application/json; charset=utf-8
+
+INFO  10 2019-12-18 22:35:50,754 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44320/swagger  
+
+INFO  10 2019-12-18 22:35:50,755 [10] ?     - Request finished in 0.9665ms 301 
+
+INFO  17 2019-12-18 22:35:50,763 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44320/swagger/index.html  
+
+INFO  17 2019-12-18 22:35:50,825 [17] ?     - Request finished in 61.9578ms 200 text/html
+
+INFO  18 2019-12-18 22:35:50,891 [18] ?     - Request starting HTTP/2.0 GET https://localhost:44320/swagger/swagger-ui.css  
+
+INFO  17 2019-12-18 22:35:50,893 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44320/swagger/swagger-ui-bundle.js  
+
+INFO  10 2019-12-18 22:35:50,896 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44320/swagger/swagger-ui-standalone-preset.js  
+
+INFO  18 2019-12-18 22:35:50,925 [18] ?     - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+
+INFO  18 2019-12-18 22:35:50,927 [18] ?     - Request finished in 36.0768ms 200 text/css
+
+INFO  18 2019-12-18 22:35:50,930 [18] ?     - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+
+INFO  18 2019-12-18 22:35:50,930 [18] ?     - Request finished in 33.8799ms 200 application/javascript
+
+INFO  17 2019-12-18 22:35:50,947 [17] ?     - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+
+INFO  17 2019-12-18 22:35:50,947 [17] ?     - Request finished in 54.0935ms 200 application/javascript
+
+INFO  17 2019-12-18 22:35:51,124 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44320/swagger/v1/swagger.json  
+
+INFO  17 2019-12-18 22:35:51,312 [17] ?     - Request finished in 187.9356ms 200 application/json;charset=utf-8
+
