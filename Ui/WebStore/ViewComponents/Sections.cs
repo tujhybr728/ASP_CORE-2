@@ -18,14 +18,24 @@ namespace WebStore.ViewComponents
         }
 
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string sectionId)
         {
-            var sections = GetSections();
-            return View(sections);
+            int.TryParse(sectionId, out var sectionIdInt);
+
+            var sections = GetSections(sectionIdInt, out var parentSectionId);
+            return View(new SectionCompleteViewModel
+            {
+                Sections = sections,
+                CurrentSectionId = sectionIdInt,
+                CurrentParentSectionId = parentSectionId
+            });
+
         }
 
-        private List<SectionViewModel> GetSections()
+        private List<SectionViewModel> GetSections(int? sectionId, out int? parentSectionId)
         {
+            parentSectionId = null;
+
             var categories = _productService.GetSections();
 
             var parentCategories = categories.Where(x => !x.ParentId.HasValue).ToArray();
@@ -49,6 +59,10 @@ namespace WebStore.ViewComponents
                 var childCategories = categories.Where(c => c.ParentId == sectionViewModel.Id);
                 foreach (var childCategory in childCategories)
                 {
+                    // определение родительской категории
+                    if (childCategory.Id == sectionId)
+                        parentSectionId = sectionViewModel.Id;
+
                     sectionViewModel.ChildSections.Add(new SectionViewModel()
                     {
                         Id = childCategory.Id,
@@ -57,8 +71,12 @@ namespace WebStore.ViewComponents
                         ParentSection = sectionViewModel
                     });
                 }
-                sectionViewModel.ChildSections = sectionViewModel.ChildSections.OrderBy(c => c.Order).ToList();
+
+                sectionViewModel.ChildSections = sectionViewModel.ChildSections
+                    .OrderBy(c => c.Order)
+                    .ToList();
             }
+
             parentSections = parentSections.OrderBy(c => c.Order).ToList();
 
             return parentSections;

@@ -55,6 +55,7 @@ namespace WebStore.Services
         public void RemoveAll()
         {
             _cartStore.Cart.Items.Clear();
+            // Cart = new Cart { Items = new List<CartItem>() }; // проваливает юнит-тесты
         }
 
         public void AddToCart(int id)

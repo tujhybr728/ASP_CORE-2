@@ -42,5 +42,20 @@ namespace WebStore.Clients.Services
             string url = $"{ServiceAddress}/{id}";
             return Get<ProductDto>(url);
         }
+
+        public Section GetSectionById(int id)
+        {
+            var url = $"{ServiceAddress}/sections/{id}";
+            var result = Get<Section>(url);
+            return result;
+        }
+
+        public Brand GetBrandById(int id)
+        {
+            var url = $"{ServiceAddress}/brands/{id}";
+            var result = Get<Brand>(url);
+            return result;
+        }
+
     }
 }
