@@ -129,7 +129,7 @@ namespace WebStore.DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WebStore.Domain.Entities.Brand", b =>
+            modelBuilder.Entity("WebStore.DomainNew.Entities.Brand", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -142,54 +142,6 @@ namespace WebStore.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Brands");
-                });
-
-            modelBuilder.Entity("WebStore.Domain.Entities.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BrandId");
-
-                    b.Property<string>("ImageUrl");
-
-                    b.Property<string>("Manufacturer");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Order");
-
-                    b.Property<decimal>("Price");
-
-                    b.Property<int>("SectionId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
-
-                    b.HasIndex("SectionId");
-
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("WebStore.Domain.Entities.Section", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Order");
-
-                    b.Property<int?>("ParentId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ParentId");
-
-                    b.ToTable("Sections");
                 });
 
             modelBuilder.Entity("WebStore.DomainNew.Entities.Order", b =>
@@ -236,6 +188,56 @@ namespace WebStore.DAL.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("OrderItems");
+                });
+
+            modelBuilder.Entity("WebStore.DomainNew.Entities.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("BrandId");
+
+                    b.Property<string>("ImageUrl");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Manufacturer");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Order");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<int>("SectionId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("SectionId");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("WebStore.DomainNew.Entities.Section", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Order");
+
+                    b.Property<int?>("ParentId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Sections");
                 });
 
             modelBuilder.Entity("WebStore.DomainNew.Entities.User", b =>
@@ -334,25 +336,6 @@ namespace WebStore.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("WebStore.Domain.Entities.Product", b =>
-                {
-                    b.HasOne("WebStore.Domain.Entities.Brand", "Brand")
-                        .WithMany("Products")
-                        .HasForeignKey("BrandId");
-
-                    b.HasOne("WebStore.Domain.Entities.Section", "Section")
-                        .WithMany("Products")
-                        .HasForeignKey("SectionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WebStore.Domain.Entities.Section", b =>
-                {
-                    b.HasOne("WebStore.Domain.Entities.Section", "ParentSection")
-                        .WithMany()
-                        .HasForeignKey("ParentId");
-                });
-
             modelBuilder.Entity("WebStore.DomainNew.Entities.Order", b =>
                 {
                     b.HasOne("WebStore.DomainNew.Entities.User", "User")
@@ -366,9 +349,28 @@ namespace WebStore.DAL.Migrations
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId");
 
-                    b.HasOne("WebStore.Domain.Entities.Product", "Product")
+                    b.HasOne("WebStore.DomainNew.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("WebStore.DomainNew.Entities.Product", b =>
+                {
+                    b.HasOne("WebStore.DomainNew.Entities.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandId");
+
+                    b.HasOne("WebStore.DomainNew.Entities.Section", "Section")
+                        .WithMany("Products")
+                        .HasForeignKey("SectionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("WebStore.DomainNew.Entities.Section", b =>
+                {
+                    b.HasOne("WebStore.DomainNew.Entities.Section", "ParentSection")
+                        .WithMany()
+                        .HasForeignKey("ParentId");
                 });
 #pragma warning restore 612, 618
         }
